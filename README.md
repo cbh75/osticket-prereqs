@@ -18,7 +18,7 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 <h2>Prerequisites</h2>
 
-- Microsoft Azure account (this could be done in other cloud providers, but this tutorial uses Azure)
+- [Creating and Connecting to A Virtual Machine in Azure](https://github.com/cbh75/configure-vm)
 
 <br />
 
