@@ -38,7 +38,7 @@ In the box that pops up, navigate to the folder named **Internet Information Ser
 
 ![image](https://github.com/cbh75/osticket-prereqs/assets/62080815/01a0c2bb-ac9b-4808-b267-ff59c85dde52)
 
-Next, click the small plus (+) symbol to expand the folder. Once opened, expand the **World Wide Web Services** folder, and then do the same for **Application Development Services**. In this folder, we want to enable **CGI**.
+Next, click the small plus (+) symbol to expand the folder. Once opened, expand the **World Wide Web Services** folder, and then do the same for **Application Development Features**. In this folder, we want to enable **CGI**.
 
 ![image](https://github.com/cbh75/osticket-prereqs/assets/62080815/788b7570-2412-43c3-8325-c5bcaf5ec949)
 
