@@ -113,3 +113,51 @@ Click on **Enable or disable an extension**, then make sure **php_imap.dll**, **
 Once these are all enabled, refresh the osTicket page in your browser. You'll notice that some of the recommended prerequisites that were previously disabled are now enabled.
 
 ![image](https://github.com/cbh75/osticket-prereqs/assets/62080815/4442c413-b1dd-4d70-a5a1-88c2927f030e)
+
+Now we need to set up a SQL client. For this tutorial, we will use [HeidiSQL](https://www.heidisql.com/download.php). When installing, the default options are fine, so just run through the installer wizard until it finishes. Once it finishes, HeidiSQL should open automatically. If not, open it manually.
+
+Once the window opens, click **New** to create a new session. In the new session options, make sure the user is **root** and enter the same password you chose when making the MySQL server.
+
+![image](https://github.com/cbh75/osticket-prereqs/assets/62080815/3a83d016-f5fe-44dc-a9bd-7db2c40c64fa)
+
+Once these are filled out, click **Open**. This should take you to a screen similar to the one below.
+
+![image](https://github.com/cbh75/osticket-prereqs/assets/62080815/ddf832a4-05a5-4bd3-be61-40dc487dbf33)
+
+At this screen, right click in the left sidebar, then go to **Create new** and then click on **Database**. Call this database "osTicket". You will see your new database added into the list.
+
+![image](https://github.com/cbh75/osticket-prereqs/assets/62080815/582d0a7e-3b62-4140-9a47-cf3abee0d1b1)
+
+Navigate back to your osTicket setup page in your browser if it is not already there. If the steps have been followed correctly, it should be at "localhost/osTicket/setup". Alternatively, you can click on "Browse *:80 (http)" again in IIS Manager with the osTicket folder selected.
+
+On the setup page, click **Continue** at the bottom. The next screen will tell you that your configuration file is missing, which we will resolve by renaming the sample config provided to us. To do this, navigate to "C:\inetpub\wwwroot\osTicket\include\" and rename **ost-sampleconfig.php** to **ost-config.php**.
+
+![image](https://github.com/cbh75/osticket-prereqs/assets/62080815/a4f0f313-5bfb-42d8-9486-6619aa782f50)
+
+If a window pops up saying you need to provide administrator permission, click **Continue**.
+
+Now that we have our configuration file, we need to change some permissions. Right click on **ost-config.php** and select **Properties**. Navigate to the security tab at the top, then click on **Advanced**.
+
+![image](https://github.com/cbh75/osticket-prereqs/assets/62080815/e9568889-659d-4492-b945-34f62171c201)
+
+In the new window, click **Change permissions**, then **Disable inheritance**. When it asks what you would like to do with the current permissions, click **Remove all inherited permissions from this object.** Next, click **Add**. In the next window, click **Select a principal** at the top, and then in the text box type "Everyone". Click **OK**, then tick the box next to "Full control". This will automatically tick the rest of the boxes. Click **OK**, then **OK** again.
+
+![image](https://github.com/cbh75/osticket-prereqs/assets/62080815/f673e243-97f9-4a64-8b8b-86d58180032b)
+
+Once this is done, we can click **Continue** on our osTicket page. On the Basic Installation page, choose a helpdesk name and default email address to receive customer emails. You will also have to set up a primary administrator account. For the database settings, type in **osticket** for the database, **root** for the username, and enter the password you chose earlier.
+
+![image](https://github.com/cbh75/osticket-prereqs/assets/62080815/3a6256b2-47a8-468c-8fcd-24e5c6a9329f)
+
+Once this is all entered, click **Install now** at the bottom. Give it a couple seconds, and then hopefully you will see this page:
+
+![image](https://github.com/cbh75/osticket-prereqs/assets/62080815/773f1b48-bbcd-43bc-b9a0-1aacdc667848)
+
+If so, congratulations! You have succesfully installed osTicket! Now all we have to do is a bit of cleanup and change our config file permissions back to read-only. To do this, navigate back to "C:\inetpub\wwwroot\osTicket\include" where our **ost_config.php** file is and open its properties again like we did earlier. Navigate to **Security**, then click **Edit**. The only group listed should be "Everyone", so at the bottom uncheck every box except for the one next to **Read**. Click **OK**, then **OK** again.
+
+![image](https://github.com/cbh75/osticket-prereqs/assets/62080815/97351823-3563-4482-878a-9a5642c62ce7)
+
+Next, navigate back one to the osTicket folder, and delete the **setup** folder, as we no longer need it.
+
+And with that, we are finally finished installing osTicket!
+
+![image](https://github.com/cbh75/osticket-prereqs/assets/62080815/04ca0424-5665-4ca4-8418-8def9092ed8c)
